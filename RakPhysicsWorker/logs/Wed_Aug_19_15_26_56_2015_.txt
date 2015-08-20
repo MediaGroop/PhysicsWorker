@@ -1,3 +1,0 @@
-2015-08-19 15:26:56,089 INFO  [default] Network-Port 66635
-2015-08-19 15:26:56,089 INFO  [default] Network-MaxCons 1
-2015-08-19 15:26:56,292 INFO  [default] Server has been started! Listening for conections...
