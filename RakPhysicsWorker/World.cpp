@@ -1,10 +1,6 @@
 #include "World.h"
 #include "BulletCollision\BroadphaseCollision\btDbvtBroadphase.h"
-
-void startSimulation(World* w, long d)
-{
-	w->step(d);
-}
+#include "easylogging++.h"
 
 void World::removeEntity(int id)
 {
@@ -22,21 +18,23 @@ void World::addEntity(Entity* e)
 
 World::World(int i, btVector3& grav)
 {
-	this->_collisionConfiguration = new
-		btDefaultCollisionConfiguration();
-	this->_dispatcher = new btCollisionDispatcher(_collisionConfiguration);
-	this->_overlappingPairCache = new btDbvtBroadphase();
-	this->_solver = new btSequentialImpulseConstraintSolver;
-	this->_dynamicsWorld = new btDiscreteDynamicsWorld(_dispatcher,
-		_overlappingPairCache, _solver, _collisionConfiguration);
-	this->_dynamicsWorld->setGravity(grav);
-	this->_trd = std::auto_ptr<std::thread>(&std::thread(startSimulation, this, 100));
 	this->_id = i;
+	this->_trd = new std::thread(this->step, this, 100, grav);
 }
 
-void World::step(long delay)
+void World::step(World* w, long delay, btVector3& grav)
 {
-	this->_dynamicsWorld->stepSimulation(1.f / 60.f, 10.0f);
+
+	w->_collisionConfiguration = new btDefaultCollisionConfiguration();
+	w->_dispatcher = new btCollisionDispatcher(w->_collisionConfiguration);
+	w->_overlappingPairCache = new btDbvtBroadphase();
+	w->_solver = new btSequentialImpulseConstraintSolver;
+	w->_dynamicsWorld = new btDiscreteDynamicsWorld(w->_dispatcher, w->_overlappingPairCache, w->_solver, w->_collisionConfiguration);
+	w->_dynamicsWorld->setGravity(grav);
+	while (true){
+	//	LOG(INFO) << "step";
+		w->_dynamicsWorld->stepSimulation(1.f / 60.f, 10.0f);
+	}
 }
 
 World::~World()

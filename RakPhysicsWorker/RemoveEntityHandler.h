@@ -13,7 +13,7 @@ void handleRemoveEntity(RakNet::Packet* p)
 	bsIn.Read(id);
 	bsIn.Read(worldId);
 
-	World* w = &((*worlds.find(worldId)).second);
+	World* w = ((*worlds.find(worldId)).second);
 	if (w != nullptr)
 	{
 		w->removeEntity(id);

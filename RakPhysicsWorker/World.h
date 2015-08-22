@@ -13,20 +13,20 @@ private:
 	
 	int _id;
 	
-	btDefaultCollisionConfiguration * _collisionConfiguration;
-	btCollisionDispatcher * _dispatcher;
-	btBroadphaseInterface * _overlappingPairCache;
-	btSequentialImpulseConstraintSolver * _solver;
-	btDiscreteDynamicsWorld * _dynamicsWorld;
+	btDefaultCollisionConfiguration* _collisionConfiguration;
+	btCollisionDispatcher* _dispatcher;
+	btBroadphaseInterface* _overlappingPairCache;
+	btSequentialImpulseConstraintSolver* _solver;
+	btDiscreteDynamicsWorld* _dynamicsWorld;
 	
-	std::auto_ptr<std::thread> _trd;
+	std::thread* _trd;
 	
 public:
 	void removeEntity(int);
 	void addEntity(Entity*);
 	void addStatic(); // WIP
 	World(int, btVector3&);
-	void step(long);
+	static void step(World*, long, btVector3&);
 	~World();
 };
 

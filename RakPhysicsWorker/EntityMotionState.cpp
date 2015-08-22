@@ -20,9 +20,9 @@ void EntityMotionState::setWorldTransform(const btTransform& worldTrans)
 	bsOut.Write(_entity->getWorldId());
 
 	bsOut.Write(_entity->getId());
-	bsOut.Write(_entity->getTransform()->getOrigin().x);
-	bsOut.Write(_entity->getTransform()->getOrigin().y);
-	bsOut.Write(_entity->getTransform()->getOrigin().z);
+	bsOut.Write(_entity->getTransform()->getOrigin().x());
+	bsOut.Write(_entity->getTransform()->getOrigin().y());
+	bsOut.Write(_entity->getTransform()->getOrigin().z());
 	//TODO: send velocity
 	mainServer->getPeer()->Send(&bsOut, HIGH_PRIORITY, RELIABLE_ORDERED, 0, nullptr, true);
 };

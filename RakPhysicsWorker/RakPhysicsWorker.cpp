@@ -26,6 +26,10 @@
 //DONT FORGET THIS SHIT!!1
 INITIALIZE_EASYLOGGINGPP
 
+//extern vars
+Server* mainServer;
+std::map<int, World*> worlds;
+
 using namespace FileManager;
 
 //Configures easyLogging

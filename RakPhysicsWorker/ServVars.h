@@ -5,6 +5,6 @@
 #include "World.h"
 
 //#region vars
-static Server* mainServer;
-static std::map<int, World> worlds;
+extern Server* mainServer;
+extern std::map<int, World*> worlds;
 //#endregion

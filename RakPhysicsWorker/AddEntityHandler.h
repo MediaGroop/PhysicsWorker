@@ -86,10 +86,10 @@ void handleEntity(RakNet::Packet* p)
 		break;
 	}
 
-	World* w = &((worlds.find(worldId))->second);
+	World* w = ((worlds.find(worldId))->second);
 	if (w != nullptr)
 	{
-		Entity e = *new Entity(entId, new btRigidBody(mass, new EntityMotionState(), shape));
+		Entity e = *new Entity(entId, new btRigidBody(mass, new EntityMotionState(&e), shape), worldId);
 		w->addEntity(e.setPosition(x, y, z));
 	}
 };
