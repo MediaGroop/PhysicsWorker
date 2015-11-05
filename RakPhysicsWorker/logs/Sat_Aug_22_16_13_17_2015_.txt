@@ -1,7 +1,0 @@
-2015-08-22 16:13:17,245 INFO  [default] Network-Port 66636
-2015-08-22 16:13:17,248 INFO  [default] Network-MaxCons 1
-2015-08-22 16:13:17,334 INFO  [default] Server has been started! Listening for conections...
-2015-08-22 16:13:48,045 INFO  [default] A message with ID: 19 has been arrived!
-2015-08-22 16:14:43,087 INFO  [default] A message with ID: 22 has been arrived!
-2015-08-22 16:15:11,030 INFO  [default] A message with ID: 19 has been arrived!
-2015-08-22 16:15:11,100 INFO  [default] A message with ID: 135 has been arrived!

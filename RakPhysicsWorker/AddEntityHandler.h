@@ -3,11 +3,8 @@
 #include "ServVars.h"
 #include "Shapes.h"
 #include "EntityMotionState.h"
-#include "BulletCollision\CollisionShapes\btBoxShape.h"
-#include "BulletCollision\CollisionShapes\btCylinderShape.h"
-#include "BulletCollision\CollisionShapes\btSphereShape.h"
-#include "BulletCollision\CollisionShapes\btCapsuleShape.h"
-#include "BulletCollision\CollisionShapes\btConeShape.h"
+#include "btBulletDynamicsCommon.h"
+
 /*																				____________________
 																				   \__________/    |
 "Add entity" packet structure:														|  C++    |    |

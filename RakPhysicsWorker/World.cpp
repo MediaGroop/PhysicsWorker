@@ -1,6 +1,7 @@
 #include "World.h"
-#include "BulletCollision\BroadphaseCollision\btDbvtBroadphase.h"
 #include "easylogging++.h"
+
+#define sleep Sleep(10)
 
 void World::removeEntity(int id)
 {
@@ -19,6 +20,7 @@ void World::addEntity(Entity* e)
 World::World(int i, btVector3& grav)
 {
 	this->_id = i;
+	this->_running = true;
 	this->_trd = new std::thread(this->step, this, 100, grav);
 }
 
@@ -31,8 +33,9 @@ void World::step(World* w, long delay, btVector3& grav)
 	w->_solver = new btSequentialImpulseConstraintSolver;
 	w->_dynamicsWorld = new btDiscreteDynamicsWorld(w->_dispatcher, w->_overlappingPairCache, w->_solver, w->_collisionConfiguration);
 	w->_dynamicsWorld->setGravity(grav);
-	while (true){
+	while (w->getRunning()){
 	//	LOG(INFO) << "step";
+		sleep;
 		w->_dynamicsWorld->stepSimulation(1.f / 60.f, 10.0f);
 	}
 }

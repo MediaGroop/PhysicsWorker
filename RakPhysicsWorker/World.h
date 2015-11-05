@@ -1,9 +1,7 @@
 #pragma once
 #include <map>
 #include "Entity.h"
-#include "BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h"
-#include "BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h"
-#include "BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.h"
+#include "btBulletDynamicsCommon.h"
 #include <thread>
 
 class World
@@ -20,7 +18,7 @@ private:
 	btDiscreteDynamicsWorld* _dynamicsWorld;
 	
 	std::thread* _trd;
-	
+	bool _running;
 public:
 	void removeEntity(int);
 	void addEntity(Entity*);
@@ -28,5 +26,9 @@ public:
 	World(int, btVector3&);
 	static void step(World*, long, btVector3&);
 	~World();
+
+	bool getRunning(){
+		return _running;
+	};
 };
 

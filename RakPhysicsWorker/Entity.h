@@ -1,5 +1,5 @@
 #pragma once
-#include "BulletDynamics\Dynamics\btRigidBody.h"
+#include "btBulletDynamicsCommon.h"
 
 class Entity
 {

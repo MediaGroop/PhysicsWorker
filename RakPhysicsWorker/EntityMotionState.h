@@ -1,5 +1,5 @@
 #pragma once
-#include "LinearMath\btMotionState.h"
+#include "btBulletDynamicsCommon.h"
 #include "Entity.h"
 
 class EntityMotionState :

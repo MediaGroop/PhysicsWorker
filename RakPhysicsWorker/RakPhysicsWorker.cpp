@@ -6,6 +6,7 @@
 #include "FileManager.h"
 #include "ConfigLoader.h"
 #include "ServVars.h"
+
 //Handlers
 #include "WorkerConnectHandler.h"
 #include "WorkerDisconnectHandler.h"
@@ -22,6 +23,10 @@
 #define ELPP_LOG_UNORDERED_MAP
 #define ELPP_UNORDERED_SET
 #define ELPP_THREAD_SAFE
+
+#pragma comment(lib, "BulletCollision_Debug.lib")
+#pragma comment(lib, "BulletDynamics_Debug.lib")
+#pragma comment(lib, "LinearMath_Debug.lib")
 
 //DONT FORGET THIS SHIT!!1
 INITIALIZE_EASYLOGGINGPP
