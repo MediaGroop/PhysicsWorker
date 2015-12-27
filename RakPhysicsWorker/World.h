@@ -30,5 +30,10 @@ public:
 	bool getRunning(){
 		return _running;
 	};
+
+	Entity* getEntity(int id)
+	{
+		return &_entities.find(id)->second;
+	}
 };
 

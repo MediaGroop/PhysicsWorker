@@ -13,7 +13,7 @@
 #include "AddEntityHandler.h"
 #include "RemoveEntityHandler.h"
 #include "CreateWorldHandler.h"
-
+#include "OnEntityUpdate.h"
 
 #include "PacketTypes.h"
 
@@ -79,6 +79,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	listen.add((short)ID_DISCONNECTION_NOTIFICATION, handleDisconnect);
 	listen.add((short)CREATE_WORLD, handleCreateWorld);
 	listen.add((short)ADD_ENTITY, handleEntity);
+	listen.add((short)UPDATE_ENTITY, onUpdateEntity);
 	listen.add((short)REMOVE_ENTITY, handleRemoveEntity);
 
 	Server authSrv(&listen);
