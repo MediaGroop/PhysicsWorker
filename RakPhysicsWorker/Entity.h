@@ -28,6 +28,7 @@ public:
 	{
 		return _id;
 	}
+
 	btRigidBody* getBody()
 	{
 		return _body;

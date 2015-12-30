@@ -28,6 +28,33 @@
     <Filter Include="Заголовочные файлы\Server\Handlers">
       <UniqueIdentifier>{9f987272-5d73-484d-b648-d2d516ccb4c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Server\Objects">
+      <UniqueIdentifier>{5a6adc47-a91d-45f3-a305-fecf7e675003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\Net">
+      <UniqueIdentifier>{aef5946b-e6f1-4919-a3c6-f53a6e9efd41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\Utils">
+      <UniqueIdentifier>{80fd41c0-299f-4a2c-ac57-26b4421cdc69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\Bullet">
+      <UniqueIdentifier>{01fb69cc-4240-4044-80ff-e614161ab391}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\Enums">
+      <UniqueIdentifier>{233bb7cb-2833-4a57-a958-728ffe32be85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Utils">
+      <UniqueIdentifier>{b75471b5-3fb5-4e2f-8e57-f028f78d9045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Net">
+      <UniqueIdentifier>{3ce3e7ce-f921-4864-a2f6-a1d32f652e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Bullet">
+      <UniqueIdentifier>{44612583-95be-4964-8776-02130b417361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Objects">
+      <UniqueIdentifier>{446bb0e9-0fea-4f3a-8359-28fd9fc54308}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -501,42 +528,6 @@
     <ClInclude Include="..\deps\RakNet-master-without-libcat\Source\UDPProxyCoordinator.h">
       <Filter>Заголовочные файлы\RakNet</Filter>
     </ClInclude>
-    <ClInclude Include="NetworkListener.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketTypes.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="ServVars.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="easylogging++.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectedClient.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="minIni.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="minGlue.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="ConfigLoader.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
     <ClInclude Include="RemoveEntityHandler.h">
       <Filter>Заголовочные файлы\Server\Handlers</Filter>
     </ClInclude>
@@ -546,17 +537,56 @@
     <ClInclude Include="CreateWorldHandler.h">
       <Filter>Заголовочные файлы\Server\Handlers</Filter>
     </ClInclude>
-    <ClInclude Include="EntityMotionState.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
     <ClInclude Include="WorkerConnectHandler.h">
       <Filter>Заголовочные файлы\Server\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="WorkerDisconnectHandler.h">
       <Filter>Заголовочные файлы\Server\Handlers</Filter>
     </ClInclude>
+    <ClInclude Include="OnEntityUpdate.h">
+      <Filter>Заголовочные файлы\Server\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectedClient.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkListener.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityMotionState.h">
+      <Filter>Заголовочные файлы\Server\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="easylogging++.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigLoader.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ServVars.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="minGlue.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="minIni.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketTypes.h">
+      <Filter>Заголовочные файлы\Server\Enums</Filter>
+    </ClInclude>
     <ClInclude Include="Shapes.h">
-      <Filter>Заголовочные файлы\Server</Filter>
+      <Filter>Заголовочные файлы\Server\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -896,26 +926,26 @@
     <ClCompile Include="..\deps\RakNet-master-without-libcat\Source\UDPProxyClient.cpp">
       <Filter>Файлы исходного кода\RakNet</Filter>
     </ClCompile>
+    <ClCompile Include="EntityMotionState.cpp">
+      <Filter>Файлы исходного кода\Server\Bullet</Filter>
+    </ClCompile>
     <ClCompile Include="NetworkListener.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
+      <Filter>Файлы исходного кода\Server\Net</Filter>
     </ClCompile>
     <ClCompile Include="Server.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="minIni.c">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Server\Net</Filter>
     </ClCompile>
     <ClCompile Include="ConfigLoader.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
+      <Filter>Файлы исходного кода\Server\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
+    <ClCompile Include="minIni.c">
+      <Filter>Файлы исходного кода\Server\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
+      <Filter>Файлы исходного кода\Server\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="EntityMotionState.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
+    <ClCompile Include="World.cpp">
+      <Filter>Файлы исходного кода\Server\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

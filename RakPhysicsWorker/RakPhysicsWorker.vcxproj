@@ -353,6 +353,7 @@
     <ClInclude Include="minGlue.h" />
     <ClInclude Include="minIni.h" />
     <ClInclude Include="NetworkListener.h" />
+    <ClInclude Include="OnEntityUpdate.h" />
     <ClInclude Include="PacketTypes.h" />
     <ClInclude Include="RemoveEntityHandler.h" />
     <ClInclude Include="Server.h" />
