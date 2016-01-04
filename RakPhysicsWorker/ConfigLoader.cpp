@@ -1,6 +1,7 @@
 #include "ConfigLoader.h"
 #include "minIni.h"
 #include "FileManager.h"
+#include "easylogging++.h"
 
 ConfigLoader& ConfigLoader::getInstance()
 {

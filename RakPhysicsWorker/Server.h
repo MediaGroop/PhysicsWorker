@@ -1,7 +1,14 @@
 #pragma once
-#include "stdafx.h"
+#include "RakPeerInterface.h"
+
+#if defined(_WIN64) || defined(_WIN32)
 #include <thread>
+#else 
+#include <pthread.h>
+#endif
+
 #include "ConnectedClient.h"
+#include <map>
 #include "NetworkListener.h"
 
 using namespace std;
@@ -9,73 +16,71 @@ using namespace std;
 class Server
 {
 private:
+	RakNet::RakPeerInterface *_peer;
+	NetworkListener* _listener;
 
-	RakNet::RakPeerInterface *peer;
-	NetworkListener* listener;
-
-	std::thread *networkTrd;
-
-	bool running = false;
-	bool secure = false;
+#if defined(_WIN64) || defined(_WIN32)
+	std::thread * _networkTrd;
+#else
+	pthread_t * _networkTrd;
+#endif
+	
+	bool _networkRunning = false;
 
 	map<RakNet::RakNetGUID, ConnectedClient> _connections;
-public:	
+public:
+	bool _secure;
 
-	void setThread(std::thread* trd)
-	{
-		this->networkTrd = trd;
-	}
+	void setPeer(RakNet::RakPeerInterface* i);
 
-	void setRunning(bool r)
-	{
-		running = r;
-	}
+	RakNet::RakPeerInterface* getPeer();
 
-	void setSecure(bool s)
-	{
-		secure = s;
-	}
+	NetworkListener* getListener();
 
-	std::thread* getThread(){
-		return networkTrd;
-	}
+#if defined(_WIN64) || defined(_WIN32)
+	void setThread(std::thread * trd);
+	std::thread* getThread();
+	static void startMainNetworkThread(Server*, int, int);
+#else
+	void setThread(pthread_t * trd);
+	pthread_t* getThread();
+	static void* startMainNetworkThread(void* data);
+#endif
+	void setRunning(bool r);
 
-	bool isSecure(){
-		return secure;
-	}
+	bool getRunning();
 
-	bool isRunning(){
-		return running;
-	}
+	map<RakNet::RakNetGUID, ConnectedClient>* getConnections();
 
-	NetworkListener* getListener()
-	{
-		return this->listener;
-	}
+	Server(NetworkListener * lis);
 
-	RakNet::RakPeerInterface* getPeer()
-	{
-		return this->peer;
-	}
-
-	map<RakNet::RakNetGUID, ConnectedClient>* get_connections(){
-		return &_connections;
-	}
-
-	Server(NetworkListener * lis){
-		this->listener = lis;
-		this->peer = RakNet::RakPeerInterface::GetInstance();
-
+	~Server(){
+	  this->setPeer(RakNet::RakPeerInterface::GetInstance());
 	};
-	static void startNetworkTrd(Server*, int, int);
-
-	~Server(){};
 	
+        void addClient(RakNet::RakNetGUID, ConnectedClient);
+    
+	bool hasClient(RakNet::RakNetGUID);
+    
+	ConnectedClient* getClient(RakNet::RakNetGUID);
+
 	//Another ghost function
 	bool initSecurity(const char*, const char*);
-
-	void addClient(RakNet::RakNetGUID, ConnectedClient);
-	bool hasClient(RakNet::RakNetGUID);
-	ConnectedClient* getClient(RakNet::RakNetGUID);
+	
 	void removeClient(RakNet::RakNetGUID);
+
+	map<RakNet::RakNetGUID, ConnectedClient>* get_connections(){
+
+		return &_connections;
+
+	}
+	
 };
+
+#if !defined(_WIN64) && !defined(_WIN32)
+struct server_data{
+   Server* instance;
+   int  port;
+   int  max_players;
+};
+#endif

@@ -16,5 +16,5 @@ void handleCreateWorld(RakNet::Packet* p)
 	bsIn.Read(y);
 	bsIn.Read(z);
 
-	worlds.insert(pair<int, World*>(id, new World(id, btVector3(x, y, z))));
+	worlds.insert(pair<int, World*>(id, new World(id, *new btVector3(x, y, z))));
 };
